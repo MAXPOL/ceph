@@ -1,0 +1,9 @@
+#Test hosts file. Change ip on your	
+
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+192.168.0.10 master.local
+192.168.0.11 slave1.local
+192.168.0.12 slave2.local
+192.168.0.13 slave3.local
