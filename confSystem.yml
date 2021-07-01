@@ -1,0 +1,54 @@
+- hosts: cluster
+
+  tasks:
+
+  - name: install epel-release
+    yum:
+      name: epel-release
+      state: present
+
+  - name: insall ntp
+    yum:
+      name: ntp
+      state: present
+
+  - name: choise Moscow time zone
+    command: \cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime
+
+  - name: enter msocow time zone
+    command: ntpdate ru.pool.ntp.org
+
+  - name: Sync time
+    command: hwclock --systohc
+
+  - name: disabled selinux
+    command: sed -i "s|SELINUX=enforcing|SELINUX=disabled|" /etc/selinux/config
+
+  - name: open port 6789
+    firewalld:
+      port: 6789/tcp
+      permanent: yes
+      state: enabled
+
+  - name : open range ports 6800-7100
+    firewalld:
+      port: 6800-7100/tcp
+      permanent: yes
+      state: enabled
+  - name: reload firewalld
+    command: firewall-cmd --reload
+
+  - name: copy script new user
+    copy:
+       src: data/newUser.sh
+       dest: /
+       mode: '0777'
+
+  - name: start newUser.sh
+    command: sh /newUser.sh
+
+  - name: copy file update user ceph on root rules
+    copy:
+       src: data/ceph
+       dest: /etc/sudoers.d/
+       mode: '0440      
