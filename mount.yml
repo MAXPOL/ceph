@@ -1,0 +1,15 @@
+- hosts: cluster
+
+  tasks:
+
+  - name: Copy mount
+    copy:
+      src: data/firstMount.sh
+      dest: /
+      mode: '0777'
+
+  - name: Chmod +x /firstMount.sh
+    command: chmod +x /firstMount.sh
+
+  - name: start firstMount.sh
+    command: sh /firstMount.sh
