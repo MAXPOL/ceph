@@ -1,0 +1,6 @@
+- hosts: all
+
+  tasks:
+
+  - name: reload
+    command: reboot now
