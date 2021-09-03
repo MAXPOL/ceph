@@ -1,0 +1,15 @@
+- hosts: all
+
+  tasks:
+
+  - name: Copy addCephUser.sh
+    copy:
+      src: data/addCephUser.sh
+      dest: /
+      mode: '0777'
+
+  - name: Chmod +x /addCephUser.sh
+    command: chmod +x /addCephUser.sh
+
+  - name: start addCephUser.sh
+    command: sh /addCephUser.sh
