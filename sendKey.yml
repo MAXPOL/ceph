@@ -1,0 +1,15 @@
+- hosts: all
+
+  tasks:
+
+  - name: Copy keygen.sh
+    copy:
+      src: data/keygen.sh
+      dest: /
+      mode: '0777'
+
+  - name: Chmod +x /keygen.sh
+    command: chmod +x /keygen.sh
+
+  - name: start keygen.sh
+    command: sh /keygen.sh
