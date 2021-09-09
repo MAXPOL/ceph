@@ -1,10 +1,10 @@
-- hosts: all
+- hosts: cluster
 
   tasks:
 
   - name: Copy addCephUser.sh
     copy:
-      src: data/addCephUser.sh
+      src: addCephUser.sh
       dest: /
       mode: '0777'
 

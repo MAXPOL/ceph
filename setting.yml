@@ -25,7 +25,7 @@
     
   - name: Copy hosts
     copy:
-      src: data/hosts
+      src: hosts
       dest: /etc/
       mode: '0777'
 

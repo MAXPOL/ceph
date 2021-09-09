@@ -1,1 +1,6 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdom$::1         localhost localhost.localdomain localhost6 localhost6.localdom$
 
+192.168.0.109 master.local
+192.168.0.108 ceph3.local
+192.168.0.107 ceph2.local
+192.168.0.106 ceph1.local

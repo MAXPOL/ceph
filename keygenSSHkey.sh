@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "y" | ssh-keygen -q -t rsa -b 4096 -P ""  -f ~/.ssh/id_rsa --stdin
+#ssh-keygen -q -t rsa -b 4096 -P "" -f
 ssh-copy-id -f ceph@192.168.0.106
 ssh-copy-id -f ceph@192.168.0.107
 ssh-copy-id -f ceph@192.168.0.108
